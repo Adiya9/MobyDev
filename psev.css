@@ -1,0 +1,34 @@
+.before::before{
+    content:"read caption";
+    color:green;
+    font-size:40px;
+    display:block;
+    margin-bottom:15px;
+}
+.after::after{
+    content:"***";
+    display:block;
+}
+.task3{
+    position:relative;
+    width:250px;
+    height:250px;
+    border:1px solid blue;
+    margin-left:10px;
+}
+.task3::before{
+    content:"";
+    background-color: black;
+    position:absolute;
+    height:5px;
+    width:120%;
+    margin-top:-10px;
+}
+.task3::after{
+    content:"";
+    background-color: black;
+    position:absolute;
+    height:5px;
+    width:120%;
+    margin-top:260px;
+}
