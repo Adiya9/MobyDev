@@ -17,6 +17,8 @@ console.log(x);
 console.log(x);
 x--;
 console.log(x);
+console.log(x++ + ++x);
+console.log(x-- - --x);
 
 //task3
 let str = "The result is: ";
