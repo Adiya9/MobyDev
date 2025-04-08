@@ -1,5 +1,4 @@
 //task1
-/*
 let input = prompt("write number");
 if (input > 10) {
     console.log("Число больше 10");
@@ -59,6 +58,8 @@ switch (day){
     case "7":
         d = "Sunday";
         break;
+    default:
+        d = "error";
 }
 console.log(d);
 
@@ -72,7 +73,7 @@ else{
     let res = (first > second)?"Первое число больше":"Второе число больше";
     console.log(res);
 }
-    */
+
 //task 7
 let month = prompt("write number to choose season: ");
 let m;
@@ -97,5 +98,7 @@ switch(month){
     case "11":
         m = "Autumn";
         break;
+    default:
+        m = "error";
 }
 console.log(m);
