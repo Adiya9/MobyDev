@@ -8,11 +8,11 @@ button.addEventListener('click',() =>{
 //task3
 let div = document.querySelector("#myDiv");
 
-div.addEventListener('click',() =>{
+div.addEventListener('mouseover',() =>{
     div.style.backgroundColor = 'blue';
 });
 
-div.addEventListener('mouseover',() =>{
+div.addEventListener('click',() =>{
     console.log('Элемент нажат');
 });
 
