@@ -52,7 +52,7 @@ const list = [
     {name: 'Aida ', age: 16 }
 ]
 const to_str2 = JSON.stringify(list);
-//localStorage.setItem('list',to_str2);
+localStorage.setItem('list',to_str2);
 
 found = false;
 for(let i = 0;i < list.length;i ++){
@@ -76,7 +76,7 @@ if (!found) {
 }
 
 //task6
-function clear(){
+function clearr(){
     localStorage.clear();
     console.log("Cleared");
 }
@@ -86,3 +86,28 @@ function show(){
     const res6 = JSON.parse(get4);
     console.log(res6);
 }
+
+//task7
+const array = [
+    {title: "Do calculus" ,completed: "yes"},
+    {title: "Prepare to debate" ,completed: "no"},
+    {title: "Learn speech" ,completed: "no"}
+]
+const list1 = JSON.stringify(array);
+localStorage.setItem('list1',list1);
+
+get_list1 = localStorage.getItem('list1');
+const result3 = JSON.parse(get_list1);
+console.log(result3);
+
+//task8
+for(let i = 0;i < array.length;i ++){
+    let k = array[i];
+    if (k.title === "Learn speech"){
+        k.completed = "yes";
+    };
+}
+localStorage.setItem('list1',JSON.stringify(array));
+const get_list2 = localStorage.getItem('list1');
+const result4 = JSON.parse(get_list2);
+console.log(result4);
