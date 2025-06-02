@@ -1,271 +1,122 @@
 //task1
-setTimeout(()=>{
-    console.log("Hello, world!")
-},2000);
+/*
+AJAX дает возможность не перезагружать всю страницу, а только часть 
+Например, какую-нибудь таблицу , графики и так далее
+Это удобно, потому что не нужно ждать долго пока страница загружается или же 
+можно одновременно что то делать на странице пока странице загружается
 
-//task2 
-setInterval(() => {
-    let date = new Date();
-    console.log(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`)
-},1000);
+Допустим Google maps или же соцсети где пишут коментарий и так далее
+*/
+//task2
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+xhr.onload = function(){
+    if (xhr.status === 200){
+        const b = JSON.parse(xhr.responseText);
+        b.forEach(item =>{
+            console.log(item.title);
+        });
+    }else{
+        console.error("errorrr",xhr.status);
+    }
+};
+xhr.onerror = function(){
+    console.log('Network error');
+};
+xhr.send();
 
 //task3
-const time = setInterval(() => {
-    let date = new Date();
-    console.log(`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`);
-},1000);
-setTimeout(() => {
-    clearInterval(time);
-},5000);
+const xhr = new XMLHttpRequest();
+xhr.open('GET','https://jsonplaceholder.typicode.com/posts',true);
+xhr.onload = function(){
+    if (xhr.status === 200){
+        const data = JSON.parse(xhr.responseText);
+        const ul = document.createElement('ul');
+        data.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item.title;
+            ul.appendChild(li);
+        });
+        document.getElementById('createlist').appendChild(ul);
+    }else{
+        console.error("Ошибка данных",xhr.status);
+    }
+};
+xhr.onerror = function(){
+    console.log("Network error");
+};
+xhr.send();
 
 //task4
-function fetchData(){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve("Данные получены!");
-        },3000);
-    });
-}
-fetchData().then(res => {
-    console.log(res);
-});
+const xhr = new XMLHttpRequest();
+xhr.open('GET','https://jsonplaceholder.typicode.com/posts',true);
+xhr.onload = function(){
+    if (xhr.status === 200){
+        const data = JSON.parse(xhr.responseText);
+        const ul = document.createElement('ul');
+        data.forEach(item => {
+            const main_li = document.createElement('li');
+            const ul_un = document.createElement('ul');
+            const li1 = document.createElement('li');
+            li1.textContent = `Title: ${item.title}`;
+            const li2 = document.createElement('li');
+            li2.textContent = `Body: ${item.body}`;
+            const li3 = document.createElement('li');
+            li3.textContent = `Id: ${item.userId}`;
+            ul_un.appendChild(li1);
+            ul_un.appendChild(li2);
+            ul_un.appendChild(li3);
+            main_li.appendChild(ul_un);
+            ul.appendChild(main_li);
+        });
+        document.getElementById('big_list').appendChild(ul);
+    }
+    else{
+        console.error('error of data',xhr.status);
+    }
+};
+xhr.onerror = function(){
+        console.log('Network error');
+    } 
+xhr.send();
+
 
 //task5
-function fetchDataWithError(){
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            reject("Ошибка загрузки");
-        },2000);
-    })
+const a = new XMLHttpRequest();
+a.open('GET','https://jsonplaceholder.typicode.com/posуts',true);
+a.onload = function(){
+    if (a.status === 200){
+        const data = JSON.parse(a.responseText);
+        console.log(data);
+    }else{
+        showError('error of loading data');
+    }
 }
-fetchDataWithError().catch(error => {
-    console.log(error)
-});
+a.onerror = function(){
+    showError('Network error');
+};
+
+a.send();
+function showError(message){
+    document.getElementById('error').textContent = message;
+}
 
 //task6
-function fetchData(){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve("Данные получены!");
-        },3000);
-    });
-}
-
-async function fetchDataAsync(){
-    try{
-    const result = await fetchData();
-    console.log(result);
-    }
-    catch(error){
-        console.log(error);
+const xhr = new XMLHttpRequest();
+xhr.open('GET','https://jsonplaceholder.typicode.com/posts',true);
+xhr.onload = function(){
+    document.getElementById('load').style.display = 'none';
+    if (xhr.status === 200){
+        const data = JSON.parse(xhr.responseText);
+        console.log(data);
+    }else{
+        console.error('Error of loading data',xhr.status);
     }
 }
-fetchDataAsync();
-
-//task7
-function fetchDataWithError(){
-    return new Promise((resolve,reject) => {
-        setTimeout(() => {
-            reject("Ошибка загрузки");
-        },2000);
-    })
+xhr.onerror = function(){
+    document.getElementById('load').style.display = 'none';
 }
-
-
-async function fetchDataWithErrorAsync(){
-    try{
-        const result = await fetchDataWithError();
-        console.log(result);
-    }
-    catch(error){
-        console.log(error);
-    }
-}
-
-fetchDataWithErrorAsync();
-
-
-//task8
-function task1(){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve("first");
-        },1000);
-    });
-}
-
-function task2(){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve("second");
-        },2000);
-    });
-}
-
-async function Sequantly(){
-    const first = await task1();
-    console.log(first);
-
-    const second = await task2();
-    console.log(second);
-}
-
-Sequantly();
-
-//task9
-function taskA(){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve("2 seconds");
-        },2000)
-    });
-}
-function taskB(){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve("3 seconds");
-        },3000)
-    });
-}
-
-async function res(){
-    try{
-    const result = await Promise.all([taskA(),taskB()])
-    console.log(result[0],result[1]);
-    }
-    catch(error){
-        console.log(error);
-    }
-}
-res();
-
-
-//task10
-function delay(ms){
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve("hiiiii");
-        },ms)
-    });
-}
-async function delayedMessage(){
-    const result = await delay(2000)
-    console.log(result);
-}
-
-delayedMessage();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+xhr.send();
 
 
 
