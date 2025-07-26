@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width:1440px;
+    height: 100%;
+    margin:auto;
+}
+body{
+    background-color: rgb(212, 210, 210);
+}
+header{
+    margin-bottom:50px;
+}
+
+.font{
+    font-family: "Inter", sans-serif;
+}
+.white{
+    background-color: white;
+}
+.block1{
+    background-color: #FFFFFF;
+    margin-top:10px;
+    display:flex;
+    align-items: center;
+    height:65px;
+}
+.logo-search{
+    display: flex;
+    gap:120px;
+    align-items: center;
+}
+.block-nav1 a{
+    font-size:14px;
+    font-weight:400;
+    color:#000000;
+}
+.block-nav1 a:hover{
+    color:#5C53E9;
+}
+.btn-first{
+    color:white;
+    border-radius:8px;
+    background-color: #000000;
+    border:1px solid #000000;
+    width:121px;
+    height:41px;
+}
+nav a{
+    text-decoration: none;
+}
+.block-nav1{
+    background-color: white;
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+.input{
+    align-items: center;
+    display: flex;
+    border:1px solid #DFDFDF;
+    width:352px;
+    height:41px;
+    border-radius: 8px;
+    font-size: 14px;
+    padding-left:10px;
+}
+input{
+    margin-left:10px;
+    border: none;
+}
+
+
+/*Header2*/
+
+.height{
+    height:80px;
+}
+.block2{
+    margin-top:30px;
+    display:flex;
+    align-items: center;
+}
+.menu-sec{
+    display: flex;
+    gap:32px;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+}
+.menu-sec a{
+      text-decoration: none;
+          color:#000000;
+}
+.buttons-sec{
+    display: flex;
+    align-items: center;
+    gap:8px;
+}
+.btn-sec{
+    background-color: #5C53E9;
+    padding:10px;
+    gap:6px;
+    border-radius: 6px;
+    width:66px;
+    height:40px;
+    color:white;
+    border: 1px solid #5C53E9;
+}
+
+/*header3*/
+.c{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo-third{
+    display: flex;
+    align-items: center;
+    gap:5px;
+}
+.logo-name b{
+    font-size: 12px;
+}
+.logo-name h1{
+    font-size: 18px;
+}
+.menu-third nav{
+    font-size:16px;
+    display:flex;
+    gap:40px;
+}
+.menu-third nav a{
+        color:#000000;
+}
+
+/*header4*/
+.black{
+    background-color: #111928;
+    color:#FFFFFF;
+}
+.block3, .block4, .block5{
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+}
+.font-white nav a{
+    color:#FFFFFF;
+}
+
+/*header5*/
+.search-field input{
+    background-color: #111928;
+    color:white
+}
+
+.search-field{
+    width:500px;
+    height:44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid #D6D8DE;
+    border-radius: 6px;
+}
+.search-field img{
+    margin-right:10px;
+}
+header{
+    padding-left: 20px;
+    padding-right:20px;
+}
